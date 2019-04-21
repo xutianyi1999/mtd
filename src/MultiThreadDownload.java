@@ -24,9 +24,8 @@ public class MultiThreadDownload extends Thread {
             inputStream = urlConnection.getInputStream();
             byte[] buffer = new byte[Common.BUFFER_SIZE];
 
-            for (int n; -1 != (n = inputStream.read(buffer)); ) {
+            for (int n; -1 != (n = inputStream.read(buffer)); Common.COUNT += n) {
                 randomAccessFile.write(buffer, 0, n);
-                Common.COUNT += n;
             }
         } catch (Exception e) {
             try {

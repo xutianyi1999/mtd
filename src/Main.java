@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             Common.URL = new URL(args[0]);
-            Common.FILE = new File(args[1]);
+            Common.FILE = new File(args[1], new File(Common.URL.getPath()).getName());
             File parentFile = Common.FILE.getParentFile();
 
             if (!parentFile.exists()) {
